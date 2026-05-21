@@ -1,0 +1,8 @@
+build/
+.arduino-cli-display-controller/
+*.tmp
+*.bak
+*.hex
+*.elf
+*.map
+DisplayControllerV1.2.2.log
