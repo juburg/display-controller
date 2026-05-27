@@ -1,4 +1,5 @@
 build/
+dist/
 .arduino-cli-display-controller/
 *.tmp
 *.bak

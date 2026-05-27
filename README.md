@@ -22,3 +22,19 @@ arduino:avr:nano:cpu=atmega328
 ```
 
 The build script stages the sketch into a temporary folder named `DisplayController_V122_debug`, because Arduino requires the sketch directory name to match the main `.ino` file.
+
+Flash package:
+
+```powershell
+.\tools\package-display-controller-flasher.ps1
+```
+
+If PowerShell script execution is blocked:
+
+```cmd
+tools\package-display-controller-flasher.bat
+```
+
+The package is written to `dist/DisplayController_V122_Flashpaket.zip`. It
+contains the firmware `.hex`, `avrdude.exe`, `avrdude.conf`, and
+`flash-DisplayController.bat`.

@@ -18,3 +18,21 @@ Original IDE build:
 External libraries:
 
 - none
+
+## External Flash Package
+
+Create the beginner package with:
+
+```powershell
+.\tools\package-display-controller-flasher.ps1
+```
+
+The generated package flashes via the Arduino Nano bootloader:
+
+```text
+avrdude.exe -C avrdude.conf -v -patmega328p -carduino -P<COM> -b115200 -D -Uflash:w:DisplayController_V122_debug.ino.hex:i
+```
+
+The documented target is `arduino:avr:nano:cpu=atmega328`, which uses the Nano
+ATmega328P bootloader at `115200` baud. For old Nano bootloaders the generated
+batch also accepts `57600` as second argument.
