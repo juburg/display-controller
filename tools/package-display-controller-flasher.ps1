@@ -97,7 +97,7 @@ if "%PORT%"=="" (
 )
 
 if "%~2"=="" (
-  set BAUD=115200
+  set BAUD=57600
 ) else (
   set BAUD=%~2
 )
@@ -111,7 +111,7 @@ if errorlevel 1 (
   echo.
   echo FEHLER: Flashen fehlgeschlagen.
   echo USB-Kabel, COM-Port und Nano-Bootloader pruefen.
-  echo Falls es ein alter Nano-Bootloader ist: flash-DisplayController.bat %PORT% 57600
+  echo Optional neuer Nano-Bootloader: flash-DisplayController.bat %PORT% 115200
   pause
   exit /b 1
 )
@@ -149,18 +149,18 @@ Direkt per Kommandozeile
 ------------------------
 flash-DisplayController.bat COM15
 
-Alter Nano-Bootloader
+Neuer Nano-Bootloader
 ---------------------
 Falls der normale Weg fehlschlaegt:
 
-flash-DisplayController.bat COM15 57600
+flash-DisplayController.bat COM15 115200
 
 Fehlerhilfe
 -----------
 - USB-Kabel pruefen. Manche Kabel sind nur Ladekabel.
 - COM-Port im Geraetemanager erneut pruefen.
-- Default ist Arduino Nano ATmega328P mit 115200 Baud.
-- Bei Clone/Nano mit altem Bootloader 57600 Baud versuchen.
+- Default ist Arduino Nano ATmega328P mit altem Bootloader bei 57600 Baud.
+- Bei Nano mit neuem Bootloader 115200 Baud versuchen.
 '@
 
 Set-Content -LiteralPath (Join-Path $packageDir 'README_KURZ.txt') -Value $readme -Encoding ascii

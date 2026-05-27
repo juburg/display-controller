@@ -30,9 +30,10 @@ Create the beginner package with:
 The generated package flashes via the Arduino Nano bootloader:
 
 ```text
-avrdude.exe -C avrdude.conf -v -patmega328p -carduino -P<COM> -b115200 -D -Uflash:w:DisplayController_V122_debug.ino.hex:i
+avrdude.exe -C avrdude.conf -v -patmega328p -carduino -P<COM> -b57600 -D -Uflash:w:DisplayController_V122_debug.ino.hex:i
 ```
 
-The documented target is `arduino:avr:nano:cpu=atmega328`, which uses the Nano
-ATmega328P bootloader at `115200` baud. For old Nano bootloaders the generated
-batch also accepts `57600` as second argument.
+The documented compile target is `arduino:avr:nano:cpu=atmega328`. The standalone
+flash package defaults to `57600` baud for the old Nano bootloader. For Nano
+boards with the newer bootloader the generated batch also accepts `115200` as
+second argument.
